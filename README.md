@@ -24,7 +24,7 @@ Clone o projeto utilizando o botão oferecido.
 
 ## 3. Iniciando o Backend
 
-### Instalando o json-server e nodemon
+### Instalando o json-server
 
 `npm install -g json-server`
 
