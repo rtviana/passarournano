@@ -1,0 +1,50 @@
+<div class="fixed-top">
+  <nav class="navbar navbar-light bg-faded">
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-4">
+            <a [routerLink]="['']" class="navbar-brand">
+            <img src="/assets/logo.png" />
+            </a>
+        </div>
+
+        <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Pesquisa por ofertas"
+            #termoDaPesquisa
+            (keyup)="pesquisa(termoDaPesquisa.value)">
+
+            <!---z-index: para correção de conflitos, tendo preferencia na renderização -->
+            <ul class="list-group" style="position: absolut; z-index: 999">
+          <!--Observable preenchendo o campo de forma dinamica-->
+          
+          <!--Click: Após clicar no link da pesquisa , ira resetar o preenchimento-->
+          <li class="list-group-item" *ngFor="let oferta of ofertas | async">
+            <a [routerLink]="['/oferta', oferta.id]" (click)="limpaPesquisa()">{{oferta.titulo | descricaoReduzida}} </a>
+          </li>          
+        </ul>
+        </div>
+        
+        <div class="col-md-2">
+          <a routerLink="/ordem-compra"><img src="/assets/carrinho.png" /></a>
+        </div>
+      </div>      
+    </div>
+  </nav>
+
+  <div class="menu">
+    <div class="container">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/restaurantes']">Restaurantes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/diversao']">Diversão</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="banner">
+  <img src="/assets/banners/img_1.jpg" />
+</div>
